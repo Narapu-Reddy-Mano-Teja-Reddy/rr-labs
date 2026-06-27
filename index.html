@@ -12,9 +12,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -38,54 +37,74 @@
 
   <style>
     .glass-nav {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     /* Enhanced Reveal Animations */
     .reveal {
-        opacity: 0;
-        transform: translateY(30px);
+      opacity: 0;
+      transform: translateY(30px);
     }
+
     .reveal.visible {
-        animation: fadeUp 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+      animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
+
     @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(30px) scale(0.95); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     /* Float animation */
     @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
     }
+
     .animate-float {
-        animation: float 6s ease-in-out infinite;
+      animation: float 6s ease-in-out infinite;
     }
 
     /* Premium overlapping cards */
     .overlap-card-container {
-        position: relative;
-        transition: transform 0.4s ease;
+      position: relative;
+      transition: transform 0.4s ease;
     }
+
     .overlap-card-container:hover {
-        transform: translateY(-8px);
+      transform: translateY(-8px);
     }
+
     .overlap-card-text {
-        box-shadow: 0 20px 40px -15px rgba(7, 19, 38, 0.25);
-        transition: transform 0.4s ease;
+      box-shadow: 0 20px 40px -15px rgba(7, 19, 38, 0.25);
+      transition: transform 0.4s ease;
     }
+
     .overlap-card-container:hover .overlap-card-text {
-        transform: translateY(-5px);
+      transform: translateY(-5px);
     }
 
     /* Split layout shadow and frame */
     .split-image-frame {
-        box-shadow: 0 25px 50px -12px rgba(7, 19, 38, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(7, 19, 38, 0.25);
     }
-</style>
+  </style>
 </head>
 
 <body class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
@@ -158,9 +177,6 @@
 
       <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="max-w-3xl reveal">
-          <span
-            class="inline-block px-3 py-1 mb-4 text-xs sm:text-sm font-bold tracking-widest text-brand-accent bg-brand-accent/10 rounded-full">EST.
-            2026 | ISO CERTIFIED</span>
           <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight mb-5 md:mb-8">
             Laboratory Furniture & Clean Room Projects <br />
             <span class="italic text-brand-accent font-light text-3xl sm:text-4xl md:text-6xl text-white/90">Turnkey
@@ -188,32 +204,43 @@
     <section id="services" class="py-24 bg-[#071326] text-white overflow-hidden">
       <div class="container mx-auto px-6">
         <div class="text-center mb-20 reveal">
-          <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-brand-orange bg-brand-orange/10 rounded-full uppercase">Turnkey Offerings</span>
+          <span
+            class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-brand-orange bg-brand-orange/10 rounded-full uppercase">Turnkey
+            Offerings</span>
           <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Turnkey Cleanroom Projects</h2>
           <div class="h-1.5 w-24 bg-brand-orange mx-auto rounded-full mb-6"></div>
-          <p class="text-slate-400 max-w-xl mx-auto text-lg">Sophisticated utility, panels, and environmental controls for high-stakes laboratories.</p>
+          <p class="text-slate-400 max-w-xl mx-auto text-lg">Sophisticated utility, panels, and environmental controls
+            for high-stakes laboratories.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <!-- Card 1: Modular Systems -->
           <div class="overlap-card-container reveal">
             <div class="overflow-hidden rounded-[2rem]">
-              <img src="assets/images/Clean-Room-Projects/Clean-room-1.webp" class="w-full h-[380px] object-cover transition-transform duration-700 hover:scale-105" alt="Modular Systems" />
+              <img src="assets/images/Clean-Room-Projects/Clean-room-1.webp"
+                class="w-full h-[380px] object-cover transition-transform duration-700 hover:scale-105"
+                alt="Modular Systems" />
             </div>
-            <div class="overlap-card-text bg-white text-slate-900 p-8 rounded-3xl mx-6 -mt-20 relative z-10 text-center">
+            <div
+              class="overlap-card-text bg-white text-slate-900 p-8 rounded-3xl mx-6 -mt-20 relative z-10 text-center">
               <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Modular Systems</h3>
-              <p class="text-slate-600 leading-relaxed">Customizable wall and ceiling systems that ensure optimal performance for controlled environments and cleanrooms.</p>
+              <p class="text-slate-600 leading-relaxed">Customizable wall and ceiling systems that ensure optimal
+                performance for controlled environments and cleanrooms.</p>
             </div>
           </div>
 
           <!-- Card 2: Turnkey Services -->
           <div class="overlap-card-container reveal">
             <div class="overflow-hidden rounded-[2rem]">
-              <img src="assets/images/Clean-Room-Projects/Clean-room-3.webp" class="w-full h-[380px] object-cover transition-transform duration-700 hover:scale-105" alt="Turnkey Services" />
+              <img src="assets/images/Clean-Room-Projects/Clean-room-3.webp"
+                class="w-full h-[380px] object-cover transition-transform duration-700 hover:scale-105"
+                alt="Turnkey Services" />
             </div>
-            <div class="overlap-card-text bg-white text-slate-900 p-8 rounded-3xl mx-6 -mt-20 relative z-10 text-center">
+            <div
+              class="overlap-card-text bg-white text-slate-900 p-8 rounded-3xl mx-6 -mt-20 relative z-10 text-center">
               <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Turnkey Services</h3>
-              <p class="text-slate-600 leading-relaxed">Comprehensive support from design to testing for all types of cleanroom environments in South India.</p>
+              <p class="text-slate-600 leading-relaxed">Comprehensive support from design to testing for all types of
+                cleanroom environments in South India.</p>
             </div>
           </div>
         </div>
@@ -224,57 +251,81 @@
     <section class="py-24 bg-slate-50 border-b border-slate-100">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 reveal">
-          <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-[#20635B] bg-[#20635B]/10 rounded-full uppercase">Product Showcase</span>
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4">Core Infrastructure & Equipment</h2>
-          <p class="text-slate-500 max-w-lg mx-auto">High-performance engineering designed for durability, precision, and compliance.</p>
+          <span
+            class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-[#20635B] bg-[#20635B]/10 rounded-full uppercase">Product
+            Showcase</span>
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4">Core Infrastructure & Equipment
+          </h2>
+          <p class="text-slate-500 max-w-lg mx-auto">High-performance engineering designed for durability, precision,
+            and compliance.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Card 1 -->
-          <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+          <div
+            class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
             <div>
               <div class="overflow-hidden h-64">
-                <img src="assets/images/Clean-Room-Projects/Clean-room-2.webp" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Clean Room Panel" />
+                <img src="assets/images/Clean-Room-Projects/Clean-room-2.webp"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  alt="Clean Room Panel" />
               </div>
               <div class="p-8">
                 <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Clean Room Panel</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">A cleanroom has a controlled level of contamination that is specified by the number of particles/m3 and by maximum particle size.</p>
+                <p class="text-slate-600 text-sm leading-relaxed">A cleanroom has a controlled level of contamination
+                  that is specified by the number of particles/m3 and by maximum particle size.</p>
               </div>
             </div>
             <div class="px-8 pb-8 flex justify-end">
-              <a href="cleanrooms.html" class="rounded-full px-6 py-2 text-white font-semibold bg-[#20635B] hover:bg-[#184c46] transition-colors text-xs inline-block">Know More</a>
+              <a href="cleanrooms.html"
+                class="rounded-full px-6 py-2 text-white font-semibold bg-[#20635B] hover:bg-[#184c46] transition-colors text-xs inline-block">Know
+                More</a>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+          <div
+            class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
             <div>
               <div class="overflow-hidden h-64">
-                <img src="assets/images/Clean-Room-Projects/Clean-room-4.webp" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Modular Operation Theatre" />
+                <img src="assets/images/Clean-Room-Projects/Clean-room-4.webp"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  alt="Modular Operation Theatre" />
               </div>
               <div class="p-8">
                 <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Modular Operation Theatre</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">It offers feature modular, hygienic finish and matches up with the working standards as required in OT areas. The presence of sterilized coating as well as antistatic flooring.</p>
+                <p class="text-slate-600 text-sm leading-relaxed">It offers feature modular, hygienic finish and matches
+                  up with the working standards as required in OT areas. The presence of sterilized coating as well as
+                  antistatic flooring.</p>
               </div>
             </div>
             <div class="px-8 pb-8 flex justify-end">
-              <a href="cleanrooms.html" class="rounded-full px-6 py-2 text-white font-semibold bg-[#20635B] hover:bg-[#184c46] transition-colors text-xs inline-block">Know More</a>
+              <a href="cleanrooms.html"
+                class="rounded-full px-6 py-2 text-white font-semibold bg-[#20635B] hover:bg-[#184c46] transition-colors text-xs inline-block">Know
+                More</a>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+          <div
+            class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
             <div>
               <div class="overflow-hidden h-64">
-                <img src="assets/images/Clean-Room-Projects/Clean-room-3.webp" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Clean Room Equipments" />
+                <img src="assets/images/Clean-Room-Projects/Clean-room-3.webp"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  alt="Clean Room Equipments" />
               </div>
               <div class="p-8">
                 <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Clean Room Equipments</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">RR Lab Solutions offers Cleanroom equipment within the Cleanroom for Biotech Pharmaceuticals, Microelectronics, Laboratory, Semi conductor units and Hospitals.</p>
+                <p class="text-slate-600 text-sm leading-relaxed">RR Lab Solutions offers Cleanroom equipment within the
+                  Cleanroom for Biotech Pharmaceuticals, Microelectronics, Laboratory, Semi conductor units and
+                  Hospitals.</p>
               </div>
             </div>
             <div class="px-8 pb-8 flex justify-end">
-              <a href="cleanrooms.html" class="rounded-full px-6 py-2 text-white font-semibold bg-[#20635B] hover:bg-[#184c46] transition-colors text-xs inline-block">Know More</a>
+              <a href="cleanrooms.html"
+                class="rounded-full px-6 py-2 text-white font-semibold bg-[#20635B] hover:bg-[#184c46] transition-colors text-xs inline-block">Know
+                More</a>
             </div>
           </div>
         </div>
@@ -286,22 +337,29 @@
       <div class="container mx-auto px-6">
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <div class="lg:w-1/2 reveal">
-            <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-[#20635B] bg-[#20635B]/10 rounded-full uppercase">Bengaluru Specialists</span>
+            <span
+              class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-[#20635B] bg-[#20635B]/10 rounded-full uppercase">Bengaluru
+              Specialists</span>
             <h2 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-navy mb-6 leading-tight">
               RR Lab Solutions: <br />
               <span class="text-[#20635B]">Bengaluru Specialists</span> in Clean Rooms
             </h2>
             <p class="text-slate-600 text-lg mb-8 leading-relaxed">
-              Looking for top-notch clean room panels or modular operation theatres in Bengaluru? Look no further than RR Lab Solutions. With over 18 years of specialized engineering experience, our technical team handles turnkey projects with ultimate speed, safety, and regulatory compliance.
+              Looking for top-notch clean room panels or modular operation theatres in Bengaluru? Look no further than
+              RR Lab Solutions. With over 18 years of specialized engineering experience, our technical team handles
+              turnkey projects with ultimate speed, safety, and regulatory compliance.
             </p>
             <div class="flex gap-4">
-              <a href="contact.html" class="bg-brand-navy hover:bg-[#20635B] text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg text-sm uppercase tracking-wider">Consult Our Team</a>
+              <a href="contact.html"
+                class="bg-brand-navy hover:bg-[#20635B] text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg text-sm uppercase tracking-wider">Consult
+                Our Team</a>
             </div>
           </div>
           <div class="lg:w-1/2 flex justify-center reveal">
             <div class="relative w-full max-w-md animate-float">
               <img src="assets/images/Clean-Room-Projects/Clean-room-4.webp"
-                class="rounded-[2rem] w-full h-[480px] object-cover shadow-2xl border-4 border-white" alt="Cleanroom Showcase" />
+                class="rounded-[2rem] w-full h-[480px] object-cover shadow-2xl border-4 border-white"
+                alt="Cleanroom Showcase" />
               <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-[#20635B]/15 rounded-full blur-2xl"></div>
             </div>
           </div>
@@ -312,30 +370,36 @@
     <!-- SECTION 4: Split Card layout Showcase (Image 3 style) on White background -->
     <section class="py-24 bg-white border-t border-slate-100">
       <div class="container mx-auto px-6">
-        <div class="bg-slate-50 rounded-[3rem] p-8 md:p-12 border border-slate-200/60 max-w-6xl mx-auto shadow-sm reveal">
+        <div
+          class="bg-slate-50 rounded-[3rem] p-8 md:p-12 border border-slate-200/60 max-w-6xl mx-auto shadow-sm reveal">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <!-- Left framed image -->
             <div class="lg:col-span-6 flex justify-center">
               <div class="bg-white p-4 rounded-3xl split-image-frame border border-slate-200/80 w-full max-w-md">
-                <img src="assets/images/Clean-Room-Projects/Clean-room-2.webp" class="rounded-2xl w-full h-72 object-cover" alt="Cleanroom Panel" />
+                <img src="assets/images/Clean-Room-Projects/Clean-room-2.webp"
+                  class="rounded-2xl w-full h-72 object-cover" alt="Cleanroom Panel" />
               </div>
             </div>
             <!-- Right text content -->
             <div class="lg:col-span-6">
-              <div class="bg-[#20635B] text-white text-xs font-bold px-4 py-1.5 rounded uppercase tracking-widest inline-block mb-4">
+              <div
+                class="bg-[#20635B] text-white text-xs font-bold px-4 py-1.5 rounded uppercase tracking-widest inline-block mb-4">
                 RR LAB SOLUTIONS
               </div>
               <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 leading-tight">
                 CLEAN ROOM PANEL<br />EXCELLENT AND DURABLE
               </h2>
               <p class="text-slate-600 mb-6 leading-relaxed">
-                Are you in need of a reliable designer, builder, manufacturer, contractor, and service provider for modular and portable clean rooms? Look no further than RR Lab Solutions! With years of experience in the industry, we are your go-to solution for all your clean room needs.
+                Are you in need of a reliable designer, builder, manufacturer, contractor, and service provider for
+                modular and portable clean rooms? Look no further than RR Lab Solutions! With years of experience in the
+                industry, we are your go-to solution for all your clean room needs.
               </p>
               <div class="text-sm font-semibold text-slate-500 mb-6 flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#20635B]"></span>
                 Available at Online &amp; Offline Store
               </div>
-              <a href="contact.html" class="bg-[#20635B] hover:bg-[#184c46] text-white font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all inline-block shadow-md">
+              <a href="contact.html"
+                class="bg-[#20635B] hover:bg-[#184c46] text-white font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all inline-block shadow-md">
                 Request Quote
               </a>
             </div>
@@ -594,13 +658,15 @@
     </section>
 
     <!-- SECTION 5: Machinery Testimonials Banner (Image 4 style) -->
-    <section class="relative py-28 text-white overflow-hidden bg-fixed" style="background: url('assets/images/Clean-Room-Projects/Clean-room-4.webp') center/cover no-repeat fixed;">
+    <section class="relative py-28 text-white overflow-hidden bg-fixed"
+      style="background: url('assets/images/Clean-Room-Projects/Clean-room-4.webp') center/cover no-repeat fixed;">
       <!-- Dark Blue Overlay -->
       <div class="absolute inset-0 bg-[#071326]/90 z-0"></div>
-      
+
       <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16 reveal">
-          <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-brand-orange bg-brand-orange/10 rounded-full uppercase">Testimonials</span>
+          <span
+            class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-brand-orange bg-brand-orange/10 rounded-full uppercase">Testimonials</span>
           <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">What Our Clients Say</h2>
           <div class="h-1 w-20 bg-brand-orange mx-auto rounded-full"></div>
         </div>
@@ -612,15 +678,18 @@
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
             <blockquote class="text-lg md:text-xl font-medium leading-relaxed mb-8 italic text-slate-200">
-              "RR Lab Solutions provided exceptional service and quality in our cleanroom installation. Highly recommend their engineering expertise and attention to regulatory compliance standards."
+              "RR Lab Solutions provided exceptional service and quality in our cleanroom installation. Highly recommend
+              their engineering expertise and attention to regulatory compliance standards."
             </blockquote>
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center font-bold text-lg">
+              <div
+                class="w-12 h-12 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center font-bold text-lg">
                 AM
               </div>
               <div>
                 <cite class="not-italic font-bold text-white block">Abhinav Mishra</cite>
-                <span class="text-slate-400 text-xs uppercase tracking-wider block mt-0.5">Project Manager, OneSource</span>
+                <span class="text-slate-400 text-xs uppercase tracking-wider block mt-0.5">Project Manager,
+                  OneSource</span>
               </div>
             </div>
           </div>
@@ -631,15 +700,18 @@
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
             <blockquote class="text-lg md:text-xl font-medium leading-relaxed mb-8 italic text-slate-200">
-              "The modular cleanroom solutions from RR Lab Solutions exceeded our expectations. Their technical team is highly professional, responsive, and reliable throughout the execution phase."
+              "The modular cleanroom solutions from RR Lab Solutions exceeded our expectations. Their technical team is
+              highly professional, responsive, and reliable throughout the execution phase."
             </blockquote>
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center font-bold text-lg">
+              <div
+                class="w-12 h-12 rounded-full bg-brand-orange/20 border border-brand-orange text-brand-orange flex items-center justify-center font-bold text-lg">
                 AS
               </div>
               <div>
                 <cite class="not-italic font-bold text-white block">Ayush Sharma</cite>
-                <span class="text-slate-400 text-xs uppercase tracking-wider block mt-0.5">Technical Director, Bioneeds</span>
+                <span class="text-slate-400 text-xs uppercase tracking-wider block mt-0.5">Technical Director,
+                  Bioneeds</span>
               </div>
             </div>
           </div>
@@ -657,7 +729,8 @@
 
           <div class="relative z-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight">
+              <h2
+                class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight">
                 Ready to upgrade your facility?</h2>
               <p class="text-sm sm:text-base md:text-lg text-slate-400 mb-6 md:mb-8">Connect with our technical team to
                 discuss your controlled environment requirements.</p>
@@ -670,7 +743,8 @@
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
                   </div>
-                  <a href="mailto:rrlabsolutions@gmail.com" class="text-white text-sm sm:text-base md:text-lg break-words hover:text-brand-accent">rrlabsolutions@gmail.com</a>
+                  <a href="mailto:rrlabsolutions@gmail.com"
+                    class="text-white text-sm sm:text-base md:text-lg break-words hover:text-brand-accent">rrlabsolutions@gmail.com</a>
                 </div>
                 <div class="flex items-center gap-3 md:gap-4">
                   <div
@@ -681,8 +755,11 @@
                       </path>
                     </svg>
                   </div>
-                                      <a href="tel:+919845755344" class="text-white text-sm sm:text-base md:text-lg hover:text-brand-accent">+91 9845755344</a>
-                    <a href="https://wa.me/919845755344?text=Hello%20RR%20Lab%20Solutions%20I%20am%20interested%20in%20your%20services" class="text-white text-sm sm:text-base md:text-lg hover:text-brand-accent mt-2 block">WhatsApp Us</a>
+                  <a href="tel:+919845755344"
+                    class="text-white text-sm sm:text-base md:text-lg hover:text-brand-accent">+91 9845755344</a>
+                  <a href="https://wa.me/919845755344?text=Hello%20RR%20Lab%20Solutions%20I%20am%20interested%20in%20your%20services"
+                    class="text-white text-sm sm:text-base md:text-lg hover:text-brand-accent mt-2 block">WhatsApp
+                    Us</a>
                 </div>
               </div>
             </div>
@@ -700,25 +777,43 @@
   </main>
 
   <!-- CTA Section with background image reveal + clickable contacts -->
-  <section style="background: url('assets/images/Clean-Room-Projects/Clean-room-4.webp') center/cover no-repeat; position:relative;">
+  <section
+    style="background: url('assets/images/Clean-Room-Projects/Clean-room-4.webp') center/cover no-repeat; position:relative;">
     <div style="position:absolute;inset:0;background:rgba(7,19,38,0.78);"></div>
     <div class="relative z-10 container mx-auto px-6 py-24 text-center reveal">
-      <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">Ready to upgrade your facility?</h2>
-      <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">Connect with our technical team to discuss your controlled environment requirements.</p>
+      <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">Ready to upgrade your
+        facility?</h2>
+      <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">Connect with our technical team to discuss your
+        controlled environment requirements.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="tel:+919845755344"
           class="flex items-center gap-3 px-7 py-4 bg-white text-brand-navy font-bold rounded-xl hover:bg-brand-accent hover:text-white transition-all shadow-lg text-base">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.773-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.47 5.47l.773-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+            </path>
+          </svg>
           +91 9845755344
         </a>
         <a href="mailto:rrlabsolutions@gmail.com"
           class="flex items-center gap-3 px-7 py-4 bg-white/10 border border-white/30 text-white font-bold rounded-xl hover:bg-white hover:text-brand-navy transition-all text-base backdrop-blur-sm">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+            </path>
+          </svg>
           rrlabsolutions@gmail.com
         </a>
-        <a href="https://wa.me/919845755344?text=Ready%20to%20upgrade%20your%20facility%3F%20Connect%20with%20our%20technical%20team." target="_blank" rel="noopener"
+        <a href="https://wa.me/919845755344?text=Ready%20to%20upgrade%20your%20facility%3F%20Connect%20with%20our%20technical%20team."
+          target="_blank" rel="noopener"
           class="flex items-center gap-3 px-7 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1da851] transition-all text-base shadow-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.662 4.802 1.816 6.805L2 30l7.36-1.78A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2z"/><path d="M23.01 19.31c-.33-.165-1.95-.962-2.252-1.072-.303-.11-.523-.165-.743.165-.22.33-.852 1.072-1.045 1.292-.192.22-.385.248-.715.083-.33-.165-1.394-.514-2.656-1.638-.981-.874-1.643-1.953-1.836-2.283-.192-.33-.02-.508.145-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.743-1.792-1.018-2.453-.268-.644-.54-.556-.743-.566l-.633-.011c-.22 0-.578.083-.88.413-.303.33-1.155 1.128-1.155 2.75 0 1.622 1.182 3.19 1.347 3.41.165.22 2.325 3.549 5.634 4.977.788.34 1.402.543 1.88.695.79.25 1.508.215 2.077.13.634-.094 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.137-.302-.22-.632-.385z" fill="#071326"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 32 32" fill="white">
+            <path
+              d="M16 2C8.268 2 2 8.268 2 16c0 2.478.662 4.802 1.816 6.805L2 30l7.36-1.78A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" />
+            <path
+              d="M23.01 19.31c-.33-.165-1.95-.962-2.252-1.072-.303-.11-.523-.165-.743.165-.22.33-.852 1.072-1.045 1.292-.192.22-.385.248-.715.083-.33-.165-1.394-.514-2.656-1.638-.981-.874-1.643-1.953-1.836-2.283-.192-.33-.02-.508.145-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.743-1.792-1.018-2.453-.268-.644-.54-.556-.743-.566l-.633-.011c-.22 0-.578.083-.88.413-.303.33-1.155 1.128-1.155 2.75 0 1.622 1.182 3.19 1.347 3.41.165.22 2.325 3.549 5.634 4.977.788.34 1.402.543 1.88.695.79.25 1.508.215 2.077.13.634-.094 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.137-.302-.22-.632-.385z"
+              fill="#071326" />
+          </svg>
           WhatsApp Us
         </a>
       </div>
@@ -754,7 +849,9 @@
       </div>
       <div>
         <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact</h4>
-        <p class="text-slate-400 leading-relaxed mb-4"><a href="tel:+919845755344" class="hover:underline">+91 9845755344</a><br /><a href="mailto:rrlabsolutions@gmail.com" class="hover:underline">rrlabsolutions@gmail.com</a></p>
+        <p class="text-slate-400 leading-relaxed mb-4"><a href="tel:+919845755344" class="hover:underline">+91
+            9845755344</a><br /><a href="mailto:rrlabsolutions@gmail.com"
+            class="hover:underline">rrlabsolutions@gmail.com</a></p>
         <a href="contact.html" class="text-brand-accent hover:text-white font-bold transition-colors">Get In Touch
           &rarr;</a>
       </div>
@@ -868,21 +965,35 @@
   </script>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/919845755344?text=Ready%20to%20upgrade%20your%20facility%3F%20Connect%20with%20our%20technical%20team." target="_blank" rel="noopener"
-    aria-label="Chat on WhatsApp"
+  <a href="https://wa.me/919845755344?text=Ready%20to%20upgrade%20your%20facility%3F%20Connect%20with%20our%20technical%20team."
+    target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
     style="position:fixed;bottom:28px;right:24px;z-index:9999;display:flex;align-items:center;justify-content:center;width:62px;height:62px;background:#25D366;border-radius:50%;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;"
     onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.6)';"
     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)';">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.662 4.802 1.816 6.805L2 30l7.36-1.78A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
-      <path d="M23.01 19.31c-.33-.165-1.95-.962-2.252-1.072-.303-.11-.523-.165-.743.165-.22.33-.852 1.072-1.045 1.292-.192.22-.385.248-.715.083-.33-.165-1.394-.514-2.656-1.638-.981-.874-1.643-1.953-1.836-2.283-.192-.33-.02-.508.145-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.743-1.792-1.018-2.453-.268-.644-.54-.556-.743-.566l-.633-.011c-.22 0-.578.083-.88.413-.303.33-1.155 1.128-1.155 2.75 0 1.622 1.182 3.19 1.347 3.41.165.22 2.325 3.549 5.634 4.977.788.34 1.402.543 1.88.695.79.25 1.508.215 2.077.13.634-.094 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.137-.302-.22-.632-.385z" fill="#fff"/>
+      <path
+        d="M16 2C8.268 2 2 8.268 2 16c0 2.478.662 4.802 1.816 6.805L2 30l7.36-1.78A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2z"
+        fill="#25D366" />
+      <path
+        d="M23.01 19.31c-.33-.165-1.95-.962-2.252-1.072-.303-.11-.523-.165-.743.165-.22.33-.852 1.072-1.045 1.292-.192.22-.385.248-.715.083-.33-.165-1.394-.514-2.656-1.638-.981-.874-1.643-1.953-1.836-2.283-.192-.33-.02-.508.145-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.743-1.792-1.018-2.453-.268-.644-.54-.556-.743-.566l-.633-.011c-.22 0-.578.083-.88.413-.303.33-1.155 1.128-1.155 2.75 0 1.622 1.182 3.19 1.347 3.41.165.22 2.325 3.549 5.634 4.977.788.34 1.402.543 1.88.695.79.25 1.508.215 2.077.13.634-.094 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.137-.302-.22-.632-.385z"
+        fill="#fff" />
     </svg>
-    <span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:#FF6600;border-radius:50%;animation:wa-pulse 1.8s ease-in-out infinite;"></span>
+    <span
+      style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:#FF6600;border-radius:50%;animation:wa-pulse 1.8s ease-in-out infinite;"></span>
   </a>
   <style>
     @keyframes wa-pulse {
-      0%,100%{transform:scale(1);opacity:1;}
-      50%{transform:scale(1.5);opacity:0;}
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
     }
   </style>
 </body>
