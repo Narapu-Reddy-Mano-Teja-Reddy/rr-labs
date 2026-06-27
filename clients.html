@@ -1,0 +1,795 @@
+﻿<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Clients | RR Lab Solutions</title>
+    <meta name="description"
+        content="RR Lab Solutions is trusted by industry leaders in pharmaceuticals, biotech, and research, including Bioneeds, OneSource, and more." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { navy: '#071326', blue: '#0A2540', accent: '#FF6600' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['SF Pro Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating badge animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Marquee scroll */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-track {
+            animation: marquee 28s linear infinite;
+            will-change: transform;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Shimmer effect on hover */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* Zoom in hover for client logo cards */
+        .client-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .client-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.15), 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .client-card:hover .logo-img {
+            transform: scale(1.12);
+            filter: none;
+        }
+
+        .logo-img {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+            filter: grayscale(20%);
+        }
+
+        /* Stat cards zoom animation */
+        .stat-card {
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.06) translateY(-4px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Reason cards */
+        .reason-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.12);
+        }
+
+        .reason-card:hover .reason-icon-bg {
+            background: #3B82F6;
+        }
+
+        .reason-card:hover .reason-icon-bg svg {
+            color: white;
+            stroke: white;
+        }
+
+        /* Testimonial card */
+        .testimonial-card {
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px) scale(1.015);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA badge float */
+        .float-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Shine border effect on cards */
+        .shine-border {
+            position: relative;
+        }
+
+        .shine-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.5px;
+            background: linear-gradient(135deg, transparent 40%, rgba(59, 130, 246, 0.4) 50%, transparent 60%);
+            background-size: 200%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .shine-border:hover::before {
+            opacity: 1;
+            animation: shimmer 1.2s linear;
+        }
+
+        /* Button zoom */
+        .btn-zoom {
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+        }
+
+        .btn-zoom:hover {
+            transform: scale(1.07);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
+        }
+
+        .btn-zoom:active {
+            transform: scale(0.97);
+        }
+
+        /* Industry tag hover */
+        .industry-tag {
+            transition: all 0.25s ease;
+        }
+
+        .industry-tag:hover {
+            transform: scale(1.08) translateY(-2px);
+            background: #3B82F6;
+            color: white;
+            border-color: #3B82F6;
+        }
+
+        /* Highlight underline animation */
+        .animated-underline {
+            position: relative;
+        }
+
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3B82F6;
+            transition: width 0.3s ease;
+        }
+
+        .animated-underline:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
+    <header
+        class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-slate-100 py-2.5 md:py-4 shadow-sm">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/images/logo-bg.webp" alt="RR Mark"
+                    class="h-8 md:h-10 w-auto group-hover:rotate-6 transition-transform" />
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-base sm:text-lg md:text-xl tracking-tight text-brand-navy">RR LAB
+                        SOLUTIONS</span>
+                    <span
+                        class="hidden sm:block text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-semibold text-brand-accent">Laboratory
+                        Furniture &amp; Clean Room Projects</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a>
+                <a href="services.html" class="hover:text-brand-accent transition-colors">Expertise</a>
+                <a href="portfolio.html" class="hover:text-brand-accent transition-colors">Showcase</a>
+                <a href="clients.html"
+                    class="hover:text-brand-accent transition-colors font-bold text-brand-navy">Clients</a>
+                <a href="contact.html"
+                    class="bg-brand-navy text-white px-6 py-2.5 rounded-full hover:bg-brand-accent transition-all shadow-lg hover:shadow-brand-accent/20">Contact
+                    Us</a>
+            </nav>
+            <button id="menuToggle" class="md:hidden p-1.5 text-brand-navy">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 p-4 flex flex-col gap-2 shadow-lg">
+            <div class="flex justify-end mb-1">
+                <button id="mobileMenuClose" aria-label="Close menu"
+                    class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-200 text-brand-navy">&times;</button>
+            </div>
+            <a href="index.html" class="text-base font-medium py-1.5">Home</a>
+            <a href="about.html" class="text-base font-medium py-1.5">About Us</a>
+            <a href="services.html" class="text-base font-medium py-1.5">Expertise</a>
+            <a href="portfolio.html" class="text-base font-medium py-1.5">Showcase</a>
+            <a href="clients.html" class="text-base font-medium py-1.5 text-brand-accent">Clients</a>
+            <a href="contact.html"
+                class="bg-brand-navy text-white text-center px-5 py-2.5 rounded-lg text-sm font-semibold">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="pt-24 md:pt-32 pb-24 bg-slate-50 min-h-[80vh]">
+        <div class="container mx-auto px-6">
+
+            <!-- Hero Header -->
+            <div class="text-center max-w-4xl mx-auto mb-16 reveal">
+                <span
+                    class="inline-block bg-brand-accent/10 text-brand-accent font-semibold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our
+                    Client Network</span>
+                <h1 class="text-5xl md:text-6xl font-serif font-bold text-brand-navy mb-6">Trusted By Industry Leaders
+                </h1>
+                <div class="h-1.5 w-24 bg-brand-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    We partner with leading pharmaceutical, biotech, and research organizations across South India to
+                    deliver compliant, high-performance infrastructure.
+                </p>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 reveal">
+                <div
+                    class="stat-card shine-border bg-white rounded-2xl p-7 text-center border border-slate-100 shadow-sm">
+                    <div class="text-4xl font-extrabold text-brand-navy mb-1">20<span class="text-brand-accent">+</span>
+                    </div>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Happy Clients</p>
+                </div>
+                <div
+                    class="stat-card shine-border bg-white rounded-2xl p-7 text-center border border-slate-100 shadow-sm">
+                    <div class="text-4xl font-extrabold text-brand-navy mb-1">30<span class="text-brand-accent">+</span>
+                    </div>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Projects Delivered</p>
+                </div>
+                <div
+                    class="stat-card shine-border bg-white rounded-2xl p-7 text-center border border-slate-100 shadow-sm">
+                    <div class="text-4xl font-extrabold text-brand-navy mb-1">18<span class="text-brand-accent">+</span>
+                    </div>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Years of Experience</p>
+                </div>
+                <div
+                    class="stat-card shine-border bg-white rounded-2xl p-7 text-center border border-slate-100 shadow-sm">
+                    <div class="text-4xl font-extrabold text-brand-navy mb-1">100<span
+                            class="text-brand-accent">%</span></div>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Customer Satisfaction</p>
+                </div>
+
+            </div>
+
+
+            <!-- CLIENT GRID -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12 px-6">
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/anandateertha.webp" alt="Ananda Teertha"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/bioneeds.webp" alt="Bioneeds"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/hmel.webp" alt="HMEL"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/kempvillebeverages.webp" alt="Kempville Beverages"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/onesource.webp" alt="OneSource"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/stringbio.webp" alt="String Bio"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <div
+                    class="client-card bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center h-64">
+                    <img loading="lazy" src="assets/images/clients/woodjraft11.webp" alt="Woodkraft"
+                        class="logo-img max-h-full max-w-full object-contain" />
+                </div>
+
+                <!-- CTA block -->
+                <div
+                    class="bg-brand-navy p-8 rounded-2xl shadow-lg border border-brand-blue flex flex-col items-center justify-center text-center h-64 reveal">
+                    <div
+                        class="float-badge inline-block bg-brand-accent/20 rounded-full px-3 py-1 text-brand-accent text-[10px] font-bold uppercase tracking-widest mb-3">
+                        Growing Network
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white mb-3 leading-tight">And Many More</h3>
+                    <a href="contact.html"
+                        class="btn-zoom inline-block px-4 py-2 bg-brand-accent text-white text-xs font-bold rounded-lg hover:bg-white hover:text-brand-navy transition-colors">
+                        Become A Client
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scrolling marquee strip -->
+            <div class="mt-20 mb-20 overflow-hidden reveal">
+                <div class="border-y border-slate-200 py-5 bg-white">
+                    <div class="flex marquee-track whitespace-nowrap">
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦
+                            Pharmaceutical</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Cleanroom
+                            Design</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Lab
+                            Furniture</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ GMP
+                            Compliance</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ HVAC
+                            Systems</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Biotech</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Quality
+                            Control</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ ISO
+                            Standards</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦
+                            Pharmaceutical</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Cleanroom
+                            Design</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Lab
+                            Furniture</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ GMP
+                            Compliance</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ HVAC
+                            Systems</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Biotech</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ Quality
+                            Control</span>
+                        <span class="text-slate-300 font-bold text-sm uppercase tracking-widest mx-8">✦ ISO
+                            Standards</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Clients Choose Us -->
+            <div class="mb-24 reveal">
+                <div class="text-center mb-14">
+                    <span
+                        class="inline-block bg-brand-accent/10 text-brand-accent font-semibold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Why
+                        Us</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-navy mb-4">Why Clients Choose RR Lab
+                        Solutions</h2>
+                    <div class="h-1 w-16 bg-brand-accent mx-auto rounded-full mb-4"></div>
+                    <p class="text-slate-500 max-w-2xl mx-auto">Every project we undertake is a commitment — not just to
+                        build, but to build right. Here's what sets us apart.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="reason-card shine-border bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                        <div
+                            class="reason-icon-bg w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <svg class="w-7 h-7 text-brand-accent transition-all duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-3">End-to-End GMP Compliance</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">From initial design to final validation, every
+                            solution meets the highest Good Manufacturing Practice standards. We understand regulatory
+                            requirements so you don't have to worry.</p>
+                    </div>
+
+                    <div class="reason-card shine-border bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                        <div
+                            class="reason-icon-bg w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <svg class="w-7 h-7 text-brand-accent transition-all duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-3">On-Time, Every Time</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">We honour our deadlines. Our project
+                            management methodology and experienced site teams ensure milestones are met without
+                            compromising quality, keeping your operations on schedule.</p>
+                    </div>
+
+                    <div class="reason-card shine-border bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                        <div
+                            class="reason-icon-bg w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <svg class="w-7 h-7 text-brand-accent transition-all duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-3">Domain-Expert Team</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">Our in-house engineers bring decades of
+                            hands-on experience in pharmaceutical construction. We speak your language — SOP, HVAC, ISO
+                            classifications, and validation protocols.</p>
+                    </div>
+
+                    <div class="reason-card shine-border bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                        <div
+                            class="reason-icon-bg w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <svg class="w-7 h-7 text-brand-accent transition-all duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-3">Customised Lab Design</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">No two labs are alike. We provide tailor-made
+                            furniture, modular cleanroom panels, and workflow-optimised layouts that fit your unique
+                            operational needs and space constraints.</p>
+                    </div>
+
+                    <div class="reason-card shine-border bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                        <div
+                            class="reason-icon-bg w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <svg class="w-7 h-7 text-brand-accent transition-all duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-3">Transparent Project Reporting</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">Clients receive regular progress updates, site
+                            inspection access, and detailed documentation at every phase. Full transparency builds the
+                            trust that drives long-term partnerships.</p>
+                    </div>
+
+                    <div class="reason-card shine-border bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+                        <div
+                            class="reason-icon-bg w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <svg class="w-7 h-7 text-brand-accent transition-all duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-3">After-Sales Support</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">Our relationship doesn't end at handover. We
+                            provide ongoing maintenance, regulatory audit support, and rapid-response technical
+                            assistance to keep your facility running flawlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Our Promise Section -->
+            <div class="reveal mb-20">
+                <div
+                    class="bg-brand-navy rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                    <div class="absolute -top-16 -right-16 w-64 h-64 bg-brand-accent/5 rounded-full"></div>
+                    <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-white/5 rounded-full"></div>
+
+                    <div class="flex-1 text-left relative z-10">
+                        <span
+                            class="inline-block bg-brand-accent/20 text-brand-accent font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our
+                            Promise</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-5 leading-snug">Built for
+                            Compliance.<br />Designed for Performance.</h2>
+                        <p class="text-slate-400 leading-relaxed mb-6 max-w-lg">Every RR Lab Solutions project is backed
+                            by rigorous quality checks, certified materials, and a team that understands the stakes of
+                            pharmaceutical and biotech environments.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-slate-300 text-sm font-medium">ISO 14644 Compliant</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-slate-300 text-sm font-medium">GMP Certified Processes</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-slate-300 text-sm font-medium">CDSCO Audit Ready</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-shrink-0 relative z-10 flex flex-col items-center gap-5">
+                        <div class="float-badge bg-white/10 border border-white/20 rounded-2xl p-6 text-center">
+                            <div class="text-5xl font-extrabold text-white mb-1">18<span
+                                    class="text-brand-accent">+</span></div>
+                            <p class="text-slate-400 text-xs uppercase tracking-widest font-semibold">Years of Trust</p>
+                        </div>
+                        <a href="contact.html"
+                            class="btn-zoom inline-block px-8 py-3.5 bg-brand-accent text-white font-bold rounded-xl hover:bg-white hover:text-brand-navy transition-all text-sm">Start
+                            Your Project →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div class="text-center reveal">
+                <h2 class="text-3xl font-serif font-bold text-brand-navy mb-4">Ready to Join Our Client Network?</h2>
+                <p class="text-slate-500 max-w-xl mx-auto mb-8">Let's discuss your lab infrastructure requirements. Our
+                    team will create a solution that's compliant, efficient, and built to last.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html"
+                        class="btn-zoom inline-block bg-brand-navy text-white px-8 py-3.5 rounded-full font-bold hover:bg-brand-accent transition-all shadow-lg text-sm">Get
+                        a Free Consultation</a>
+                    <a href="portfolio.html"
+                        class="btn-zoom inline-block bg-white text-brand-navy border-2 border-brand-navy px-8 py-3.5 rounded-full font-bold hover:border-brand-accent hover:text-brand-accent transition-all text-sm">View
+                        Our Work</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-brand-navy pt-20 pb-10 border-t border-brand-blue/30 text-white mt-10">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                <a href="index.html" class="flex items-center gap-3 mb-6 group inline-flex">
+                    <img src="assets/images/logo-bg.webp" alt="RR Mark"
+                        class="h-8 md:h-10 w-auto group-hover:rotate-6 transition-transform brightness-0 invert" />
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg md:text-xl tracking-tight text-white">RR LAB
+                            SOLUTIONS</span>
+                        <span
+                            class="hidden sm:block text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-semibold text-brand-accent">Laboratory
+                            Furniture &amp; Clean Room Projects</span>
+                    </div>
+                </a>
+                <p class="text-slate-400 max-w-sm leading-relaxed mb-6">#218, 2nd Floor, 2nd Cross, Sachidananda Nagara,
+                    RR Nagar, Benguluru - 560098</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h4>
+                <ul class="space-y-4 text-slate-400">
+                    <li><a href="index.html"
+                            class="hover:text-brand-accent transition-colors animated-underline">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brand-accent transition-colors animated-underline">About
+                            Us</a></li>
+                    <li><a href="services.html"
+                            class="hover:text-brand-accent transition-colors animated-underline">Expertise</a></li>
+                    <li><a href="portfolio.html"
+                            class="hover:text-brand-accent transition-colors animated-underline">Showcase</a></li>
+                    <li><a href="clients.html"
+                            class="hover:text-brand-accent transition-colors animated-underline">Clients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact</h4>
+                <p class="text-slate-400 leading-relaxed mb-4"><a href="tel:+919845755344" class="hover:text-brand-accent transition-colors hover:underline">+91 9845755344</a><br /><a href="mailto:rrlabsolutions@gmail.com" class="hover:text-brand-accent transition-colors hover:underline">rrlabsolutions@gmail.com</a></p>
+                <a href="contact.html" class="text-brand-accent hover:text-white font-bold transition-colors">Get In
+                    Touch &rarr;</a>
+            </div>
+        </div>
+        <div
+            class="container mx-auto px-6 pt-8 border-t border-brand-blue flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+            <p>&copy; 2026 RR Lab Solutions. All rights reserved. <span
+                    class="ml-2 font-medium text-slate-300 whitespace-nowrap">Crafted with <span
+                        class="text-brand-accent">&hearts;</span> by <a href="https://www.tenspick.com" target="_blank"
+                        class="text-brand-accent font-bold hover:text-white transition-colors underline decoration-brand-accent/50 underline-offset-4">tenspick</a></span>
+            </p>
+            <div class="flex gap-6">
+                <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="terms-conditions.html" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const openMobileMenu = () => { mobileMenu.classList.remove('hidden'); mobileMenu.classList.add('flex'); document.body.classList.add('overflow-hidden'); };
+        const closeMobileMenu = () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); document.body.classList.remove('overflow-hidden'); };
+        menuToggle.addEventListener('click', () => mobileMenu.classList.contains('hidden') ? openMobileMenu() : closeMobileMenu());
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMobileMenu(); });
+
+        // Staggered zoom-in entrance for client cards
+        const clientCards = document.querySelectorAll('.client-card');
+        const clientObs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const idx = Array.from(clientCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, idx * 120);
+                    clientObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        clientCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px) scale(0.93)';
+            card.style.transition = 'all 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            clientObs.observe(card);
+        });
+
+        // Staggered zoom-in for reason cards
+        const reasonCards = document.querySelectorAll('.reason-card');
+        const reasonObs = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const idx = Array.from(reasonCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, idx * 100);
+                    reasonObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reasonCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(24px) scale(0.96)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            reasonObs.observe(card);
+        });
+
+        // Staggered for stat cards
+        const statCards = document.querySelectorAll('.stat-card');
+        const statObs = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const idx = Array.from(statCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, idx * 90);
+                    statObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        statCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px) scale(0.94)';
+            card.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            statObs.observe(card);
+        });
+
+        // Staggered for testimonials
+        const testCards = document.querySelectorAll('.testimonial-card');
+        const testObs = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const idx = Array.from(testCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, idx * 130);
+                    testObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        testCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            testObs.observe(card);
+        });
+    </script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919845755344?text=Ready%20to%20upgrade%20your%20facility%3F%20Connect%20with%20our%20technical%20team." target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp"
+    style="position:fixed;bottom:28px;right:24px;z-index:9999;display:flex;align-items:center;justify-content:center;width:62px;height:62px;background:#25D366;border-radius:50%;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.6)';"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)';">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.662 4.802 1.816 6.805L2 30l7.36-1.78A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
+      <path d="M23.01 19.31c-.33-.165-1.95-.962-2.252-1.072-.303-.11-.523-.165-.743.165-.22.33-.852 1.072-1.045 1.292-.192.22-.385.248-.715.083-.33-.165-1.394-.514-2.656-1.638-.981-.874-1.643-1.953-1.836-2.283-.192-.33-.02-.508.145-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.743-1.792-1.018-2.453-.268-.644-.54-.556-.743-.566l-.633-.011c-.22 0-.578.083-.88.413-.303.33-1.155 1.128-1.155 2.75 0 1.622 1.182 3.19 1.347 3.41.165.22 2.325 3.549 5.634 4.977.788.34 1.402.543 1.88.695.79.25 1.508.215 2.077.13.634-.094 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.137-.302-.22-.632-.385z" fill="#fff"/>
+    </svg>
+    <span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:#FF6600;border-radius:50%;animation:wa-pulse 1.8s ease-in-out infinite;"></span>
+  </a>
+  <style>
+    @keyframes wa-pulse {
+      0%,100%{transform:scale(1);opacity:1;}
+      50%{transform:scale(1.5);opacity:0;}
+    }
+  </style>
+</body>
+
+</html>

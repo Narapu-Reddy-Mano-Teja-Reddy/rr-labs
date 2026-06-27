@@ -1,0 +1,511 @@
+﻿<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cleanroom Solutions | RR Lab Solutions</title>
+    <meta name="description"
+        content="Modular infrastructure and HVAC integration for cleanroom contamination control." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { navy: '#071326', blue: '#0A2540', accent: '#FF6600' } },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['SF Pro Display', 'serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .panel-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .panel-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.12);
+        }
+
+        .panel-icon-ring {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
+    <header
+        class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-slate-100 py-2.5 md:py-4 shadow-sm">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/images/logo-bg.webp" alt="RR Mark"
+                    class="h-8 md:h-10 w-auto group-hover:rotate-6 transition-transform" />
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-base sm:text-lg md:text-xl tracking-tight text-brand-navy">RR LAB
+                        SOLUTIONS</span>
+                    <span
+                        class="hidden sm:block text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-semibold text-brand-accent">Laboratory
+                        Furniture &amp; Clean Room Projects</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a>
+                <a href="services.html" class="hover:text-brand-accent transition-colors">Expertise</a>
+                <a href="portfolio.html" class="hover:text-brand-accent transition-colors">Showcase</a>
+                <a href="clients.html" class="hover:text-brand-accent transition-colors">Clients</a>
+                <a href="contact.html"
+                    class="bg-brand-navy text-white px-6 py-2.5 rounded-full hover:bg-brand-accent transition-all shadow-lg hover:shadow-brand-accent/20 font-bold">Contact
+                    Us</a>
+            </nav>
+            <button id="menuToggle" class="md:hidden p-1.5 text-brand-navy">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden fixed inset-0 z-40 bg-white pt-16 px-4 flex-col gap-2.5 h-screen overflow-y-auto w-full transition-transform transform">
+            <div class="flex justify-end mb-1">
+                <button id="mobileMenuClose" aria-label="Close menu"
+                    class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-200 text-brand-navy">&times;</button>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a href="index.html"
+                    class="text-base font-serif font-semibold py-1.5 border-b border-slate-100 text-brand-navy">Home</a>
+                <a href="about.html"
+                    class="text-base font-serif font-semibold py-1.5 border-b border-slate-100 text-brand-navy">About
+                    Us</a>
+                <a href="services.html"
+                    class="text-base font-serif font-semibold py-1.5 border-b border-slate-100 text-brand-navy">Expertise</a>
+                <a href="portfolio.html"
+                    class="text-base font-serif font-semibold py-1.5 border-b border-slate-100 text-brand-navy">Showcase</a>
+                <a href="clients.html"
+                    class="text-base font-serif font-semibold py-1.5 border-b border-slate-100 text-brand-navy">Clients</a>
+            </div>
+            <a href="contact.html"
+                class="bg-brand-navy text-white text-center text-sm font-semibold px-5 py-2.5 rounded-lg mt-2.5 shadow-lg">Contact
+                Us</a>
+        </div>
+    </header>
+
+    <main class="pt-24 md:pt-32 pb-24 bg-white min-h-[80vh]">
+        <div class="container mx-auto px-6">
+            <div class="mb-12 text-center max-w-4xl mx-auto">
+                <a href="index.html#services"
+                    class="text-brand-accent font-semibold text-sm hover:underline mb-4 inline-block">&larr; Back to
+                    Expertise</a>
+                <h1 class="text-5xl md:text-6xl font-serif font-bold text-brand-navy mb-6 reveal">Cleanroom Solutions
+                </h1>
+                <div class="h-1.5 w-24 bg-brand-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-xl text-slate-600 leading-relaxed reveal">
+                    ISO-Compliant Modular Cleanrooms designed for exact particulate control, thermal stability, and
+                    pressure regulation in heavily regulated industries.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 mt-16 reveal">
+                <div class="space-y-6">
+                    <img src="assets/images/Clean-Room-Projects/Clean-room-1.webp"
+                        class="w-full h-80 object-cover rounded-3xl shadow-lg" alt="Cleanroom" />
+                    <div class="grid grid-cols-2 gap-6">
+                        <img src="assets/images/Clean-Room-Projects/Clean-room-3.webp"
+                            class="w-full h-48 object-cover rounded-2xl shadow-md" alt="Detail" />
+                        <img src="assets/images/Clean-Room-Projects/Clean-room-4.webp"
+                            class="w-full h-48 object-cover rounded-2xl shadow-md" alt="Detail" />
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-10 rounded-[2rem] border border-slate-200 flex flex-col justify-center">
+                    <h3 class="text-3xl font-serif font-bold text-brand-navy mb-6">Advanced Containment Integration</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        RR Lab Solutions brings Turnkey Cleanroom design from blueprint to commissioning. Our modular
+                        wall systems and advanced HVAC handling ensure precise operational control over temperature,
+                        humidity, and airflow.
+                    </p>
+
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-4 text-slate-700">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center shrink-0 text-sm mt-0.5">&check;</span>
+                            <div>
+                                <strong class="block text-brand-navy">Modular Panel Integration</strong>
+                                <span class="text-sm">Powder Coated, PPGI, PUF Panel, RALW Panel, and SS Panel
+                                    options with pre-fabricated, easy-to-install flush surfaces meeting cGMP
+                                    standards.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-700">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center shrink-0 text-sm mt-0.5">&check;</span>
+                            <div>
+                                <strong class="block text-brand-navy">Comprehensive HVAC Control</strong>
+                                <span class="text-sm">Laminar airflows, HEPA filtering, and dynamic pass boxes to
+                                    enforce zero contamination.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="contact.html"
+                        class="inline-block text-center bg-brand-navy text-white font-bold py-4 px-8 rounded-xl hover:bg-brand-accent transition-colors w-full md:w-auto shadow-lg">Request
+                        Facility Assessment</a>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 PANEL TYPES SECTION — added
+            ════════════════════════════════════════════════════════════ -->
+            <div class="mt-24 reveal">
+                <!-- Section header -->
+                <div class="text-center mb-14">
+                    <span
+                        class="inline-block text-brand-accent font-semibold text-sm uppercase tracking-widest mb-3">Panel
+                        Systems</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-navy mb-4">Cleanroom Panel Types
+                    </h2>
+                    <div class="h-1 w-16 bg-brand-accent mx-auto rounded-full mb-5"></div>
+                    <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                        Choose from our full range of industry-certified wall and ceiling panel solutions — each
+                        engineered for airtight performance, cGMP compliance, and long-term durability.
+                    </p>
+                </div>
+
+                <!-- Panel cards grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+                    <!-- 1. Powder Coated Panels -->
+                    <div
+                        class="panel-card bg-white border border-slate-200 rounded-2xl p-7 flex flex-col items-start shadow-sm">
+                        <div class="panel-icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-5">
+                            <!-- Paint brush icon -->
+                            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128ZM15 6l-8.47 8.47M15 6l2.25-2.25a2.121 2.121 0 0 1 3 3L18 9l-3-3Z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-brand-navy text-lg mb-2">Powder Coated Panels</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed flex-1">
+                            Electrostatically applied epoxy-polyester finish over mild steel. Provides exceptional
+                            corrosion resistance, smooth flush surfaces, and a wide colour palette — ideal for ISO Class
+                            7 &amp; 8 environments.
+                        </p>
+                        <span
+                            class="mt-5 inline-block text-xs font-semibold uppercase tracking-wider text-brand-accent bg-blue-50 px-3 py-1 rounded-full">ISO
+                            Class 7–8</span>
+                    </div>
+
+                    <!-- 2. PPGI Panels -->
+                    <div
+                        class="panel-card bg-white border border-slate-200 rounded-2xl p-7 flex flex-col items-start shadow-sm">
+                        <div class="panel-icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-5">
+                            <!-- Layers / laminate icon -->
+                            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 7.5 3 12l3.75 4.5M17.25 7.5 21 12l-3.75 4.5M9 21 12 3l3 18" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-brand-navy text-lg mb-2">PPGI Panels</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed flex-1">
+                            Pre-Painted Galvanised Iron panels with factory-applied polymer coating on zinc-coated
+                            steel. Delivers superior moisture and chemical resistance with high structural rigidity —
+                            suited for humid or temperature-sensitive rooms.
+                        </p>
+                        <span
+                            class="mt-5 inline-block text-xs font-semibold uppercase tracking-wider text-brand-accent bg-blue-50 px-3 py-1 rounded-full">Moisture
+                            Resistant</span>
+                    </div>
+
+                    <!-- 3. PUF Panels -->
+                    <div
+                        class="panel-card bg-white border border-slate-200 rounded-2xl p-7 flex flex-col items-start shadow-sm">
+                        <div class="panel-icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-5">
+                            <!-- Snowflake / insulation icon -->
+                            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636 5.636 18.364" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-brand-navy text-lg mb-2">PUF Panels</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed flex-1">
+                            Polyurethane Foam core panels sandwiched between metal skins. Outstanding thermal insulation
+                            (low U-value), lightweight construction, and excellent sound attenuation — perfect for
+                            controlled-temperature cleanrooms and cold storage labs.
+                        </p>
+                        <span
+                            class="mt-5 inline-block text-xs font-semibold uppercase tracking-wider text-brand-accent bg-blue-50 px-3 py-1 rounded-full">Thermal
+                            Insulation</span>
+                    </div>
+
+                    <!-- 4. Relay (RALW) Panels -->
+                    <div
+                        class="panel-card bg-white border border-slate-200 rounded-2xl p-7 flex flex-col items-start shadow-sm">
+                        <div class="panel-icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-5">
+                            <!-- Grid / tile icon -->
+                            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-brand-navy text-lg mb-2">Relay Panels</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed flex-1">
+                            Rock-wool or aluminium-laminate core relay panels engineered for fire-resistance and
+                            enhanced acoustic performance. Their interlocking cam-lock joints ensure rapid assembly with
+                            zero-gap sealing — widely specified for pharmaceutical and biotech facilities.
+                        </p>
+                        <span
+                            class="mt-5 inline-block text-xs font-semibold uppercase tracking-wider text-brand-accent bg-blue-50 px-3 py-1 rounded-full">Fire
+                            Resistant</span>
+                    </div>
+
+                    <!-- 5. SS Panels -->
+                    <div
+                        class="panel-card bg-white border border-slate-200 rounded-2xl p-7 flex flex-col items-start shadow-sm">
+                        <div class="panel-icon-ring w-14 h-14 rounded-xl flex items-center justify-center mb-5">
+                            <!-- Shield / stainless icon -->
+                            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-brand-navy text-lg mb-2">SS Panels</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed flex-1">
+                            Grade 304 / 316 Stainless Steel panels with electropolished or satin finish. Completely
+                            non-porous, non-particle-shedding, and resistant to aggressive cleaning agents — the gold
+                            standard for ISO Class 4–6 and sterile manufacturing environments.
+                        </p>
+                        <span
+                            class="mt-5 inline-block text-xs font-semibold uppercase tracking-wider text-brand-accent bg-blue-50 px-3 py-1 rounded-full">ISO
+                            Class 4–6</span>
+                    </div>
+
+                </div><!-- /grid -->
+
+                <!-- Comparison table -->
+                <div class="mt-14 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm reveal">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-brand-navy text-white">
+                            <tr>
+                                <th class="px-6 py-4 font-semibold rounded-tl-2xl">Panel Type</th>
+                                <th class="px-6 py-4 font-semibold">Core Material</th>
+                                <th class="px-6 py-4 font-semibold">Key Strength</th>
+                                <th class="px-6 py-4 font-semibold">Best For</th>
+                                <th class="px-6 py-4 font-semibold rounded-tr-2xl">ISO Class Suitability</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="bg-white hover:bg-blue-50/40 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-brand-navy">Powder Coated</td>
+                                <td class="px-6 py-4 text-slate-600">Mild Steel + Epoxy coat</td>
+                                <td class="px-6 py-4 text-slate-600">Cost-effective, wide colour range</td>
+                                <td class="px-6 py-4 text-slate-600">General purpose labs</td>
+                                <td class="px-6 py-4"><span
+                                        class="bg-blue-100 text-brand-accent font-semibold px-3 py-1 rounded-full text-xs">ISO
+                                        7–8</span></td>
+                            </tr>
+                            <tr class="bg-slate-50/60 hover:bg-blue-50/40 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-brand-navy">PPGI</td>
+                                <td class="px-6 py-4 text-slate-600">Galvanised Steel + Polymer</td>
+                                <td class="px-6 py-4 text-slate-600">Moisture &amp; chemical resistance</td>
+                                <td class="px-6 py-4 text-slate-600">Humid / wet process rooms</td>
+                                <td class="px-6 py-4"><span
+                                        class="bg-blue-100 text-brand-accent font-semibold px-3 py-1 rounded-full text-xs">ISO
+                                        6–8</span></td>
+                            </tr>
+                            <tr class="bg-white hover:bg-blue-50/40 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-brand-navy">PUF</td>
+                                <td class="px-6 py-4 text-slate-600">Polyurethane Foam core</td>
+                                <td class="px-6 py-4 text-slate-600">Superior thermal insulation</td>
+                                <td class="px-6 py-4 text-slate-600">Cold storage, temperature-controlled</td>
+                                <td class="px-6 py-4"><span
+                                        class="bg-blue-100 text-brand-accent font-semibold px-3 py-1 rounded-full text-xs">ISO
+                                        6–8</span></td>
+                            </tr>
+                            <tr class="bg-slate-50/60 hover:bg-blue-50/40 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-brand-navy">Relay</td>
+                                <td class="px-6 py-4 text-slate-600">Rock-wool / Al-laminate</td>
+                                <td class="px-6 py-4 text-slate-600">Fire-rated, acoustic, cam-lock joints</td>
+                                <td class="px-6 py-4 text-slate-600">Pharma &amp; biotech cleanrooms</td>
+                                <td class="px-6 py-4"><span
+                                        class="bg-blue-100 text-brand-accent font-semibold px-3 py-1 rounded-full text-xs">ISO
+                                        5–7</span></td>
+                            </tr>
+                            <tr class="bg-white hover:bg-blue-50/40 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-brand-navy rounded-bl-2xl">SS Panels</td>
+                                <td class="px-6 py-4 text-slate-600">SS 304 / 316 Stainless</td>
+                                <td class="px-6 py-4 text-slate-600">Non-porous, electropolished, sterilisable</td>
+                                <td class="px-6 py-4 text-slate-600">Sterile mfg, aseptic filling</td>
+                                <td class="px-6 py-4 rounded-br-2xl"><span
+                                        class="bg-blue-100 text-brand-accent font-semibold px-3 py-1 rounded-full text-xs">ISO
+                                        4–6</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /table -->
+
+                <!-- CTA strip -->
+                <div
+                    class="mt-12 bg-brand-navy rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+                    <div>
+                        <h3 class="text-white text-2xl font-serif font-bold mb-2">Not sure which panel suits your
+                            facility?</h3>
+                        <p class="text-slate-400 text-sm">Our engineers will assess your ISO class, process
+                            requirements, and budget to recommend the optimal panel system.</p>
+                    </div>
+                    <a href="contact.html"
+                        class="shrink-0 bg-brand-accent text-white font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-brand-navy transition-all shadow-lg whitespace-nowrap">
+                        Get a Free Consultation
+                    </a>
+                </div>
+
+            </div><!-- /panel section -->
+
+        </div>
+    </main>
+
+    <footer class="bg-brand-navy pt-20 pb-10 border-t border-brand-blue/30 text-white mt-10">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                <a href="index.html" class="flex items-center gap-3 mb-6 group inline-flex">
+                    <img src="assets/images/logo-bg.webp" alt="RR Mark"
+                        class="h-8 md:h-10 w-auto group-hover:rotate-6 transition-transform brightness-0 invert" />
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg md:text-xl tracking-tight text-white">RR LAB
+                            SOLUTIONS</span>
+                        <span
+                            class="hidden sm:block text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-semibold text-brand-accent">Laboratory
+                            Furniture &amp; Clean Room Projects</span>
+                    </div>
+                </a>
+                <p class="text-slate-400 max-w-sm leading-relaxed mb-6">#218, 2nd Floor, 2nd Cross, Sachidananda Nagara,
+                    RR Nagar, Benguluru - 560098</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h4>
+                <ul class="space-y-4 text-slate-400">
+                    <li><a href="index.html" class="hover:text-brand-accent transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-brand-accent transition-colors">Expertise</a></li>
+                    <li><a href="portfolio.html" class="hover:text-brand-accent transition-colors">Showcase</a></li>
+                    <li><a href="clients.html" class="hover:text-brand-accent transition-colors">Clients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact</h4>
+                <p class="text-slate-400 leading-relaxed mb-4"><a href="tel:+919845755344" class="hover:text-brand-accent transition-colors hover:underline">+91 9845755344</a><br /><a href="mailto:rrlabsolutions@gmail.com" class="hover:text-brand-accent transition-colors hover:underline">rrlabsolutions@gmail.com</a></p>
+                <a href="contact.html" class="text-brand-accent hover:text-white font-bold transition-colors">Get In
+                    Touch &rarr;</a>
+            </div>
+        </div>
+        <div
+            class="container mx-auto px-6 pt-8 border-t border-brand-blue flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+            <p>&copy; 2026 RR Lab Solutions. All rights reserved. <span
+                    class="ml-2 font-medium text-slate-300 whitespace-nowrap">Crafted
+                    with <span class="text-brand-accent">&hearts;</span> by <a href="https://www.tenspick.com"
+                        target="_blank"
+                        class="text-brand-accent font-bold hover:text-white transition-colors underline decoration-brand-accent/50 underline-offset-4">tenspick</a></span>
+            </p>
+            <div class="flex gap-6">
+                <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="terms-conditions.html" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        const openMobileMenu = () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        const closeMobileMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('hidden')) {
+                openMobileMenu();
+            } else {
+                closeMobileMenu();
+            }
+        });
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919845755344?text=Ready%20to%20upgrade%20your%20facility%3F%20Connect%20with%20our%20technical%20team." target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp"
+    style="position:fixed;bottom:28px;right:24px;z-index:9999;display:flex;align-items:center;justify-content:center;width:62px;height:62px;background:#25D366;border-radius:50%;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.6)';"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)';">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.662 4.802 1.816 6.805L2 30l7.36-1.78A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
+      <path d="M23.01 19.31c-.33-.165-1.95-.962-2.252-1.072-.303-.11-.523-.165-.743.165-.22.33-.852 1.072-1.045 1.292-.192.22-.385.248-.715.083-.33-.165-1.394-.514-2.656-1.638-.981-.874-1.643-1.953-1.836-2.283-.192-.33-.02-.508.145-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.743-1.792-1.018-2.453-.268-.644-.54-.556-.743-.566l-.633-.011c-.22 0-.578.083-.88.413-.303.33-1.155 1.128-1.155 2.75 0 1.622 1.182 3.19 1.347 3.41.165.22 2.325 3.549 5.634 4.977.788.34 1.402.543 1.88.695.79.25 1.508.215 2.077.13.634-.094 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.137-.302-.22-.632-.385z" fill="#fff"/>
+    </svg>
+    <span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:#FF6600;border-radius:50%;animation:wa-pulse 1.8s ease-in-out infinite;"></span>
+  </a>
+  <style>
+    @keyframes wa-pulse {
+      0%,100%{transform:scale(1);opacity:1;}
+      50%{transform:scale(1.5);opacity:0;}
+    }
+  </style>
+</body>
+
+</html>
